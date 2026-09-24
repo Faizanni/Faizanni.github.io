@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Faizan Niazi">
+  <meta name="description" content="The aggregate of unredacted faizan files.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Sweet Faizan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ NAV BAR ============ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <span class="nav-logo">Home Sweet <span class="accent">Faizan</span></span>
+      <nav>
+        <a href="#about">Bio</a>
+        <a href="#log">Log</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ INTRO AKA HERO ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">// cs + bioinfo undergrad 2023-2026 </p>
+      <p class="eyebrow">// →→ cs master's, winter 2027 😳</p>
+      <h1>Faizan</h1>
+      <!-- <p class="hero-sub">
+        There are dangers and a ship in the harbor is safe, <br>
+        but that's why we build harbors; that is not why we build ships.
+      </p>
+      <p class="hero-credits"> 
+        - That one Reddit comment I read long ago.
+      </p> -->
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">See projects</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ ABOOT ============ -->
+  <section id="about" class="section">
+    <div class="section-inner">
+      <p class="eyebrow">01 / about</p>
+      <h2>A quick intro</h2>
+      <p class="body-text">
+        I'm a rising fourth-year Computer Science student starting a
+        Master's program this winter. Right now I split my time between
+        onboarding into a research lab, learning game development in
+        Godot, and keeping my algorithms sharp on LeetCode. This site is
+        where I track what I'm building and share what I ship.
+      </p>
+      <!--
+        TIP: Replace the paragraph above with your own bio.
+        Keep it to 2-4 sentences — this section is a preview, not a resume.
+      -->
+    </div>
+  </section>
+
+  <!-- ============ BUILD LOG (signature element) ============ -->
+  <section id="log" class="section section-alt">
+    <div class="section-inner">
+      <p class="eyebrow">02 / build log</p>
+      <h2>What I'm working on</h2>
+      <p class="body-text muted">
+        A running log of progress, styled like a commit history.
+        Update this as you go — it's more honest than a static "skills" list.
+      </p>
+
+      <ul class="log">
+        <li class="log-entry">
+          <span class="log-hash">a1b2c3d</span>
+          <div class="log-content">
+            <span class="log-tag tag-research">research</span>
+            <p>Onboarded into remote CS research lab — reading through prior papers and codebase</p>
+            <span class="log-date">Jul 2026</span>
+          </div>
+        </li>
+        <li class="log-entry">
+          <span class="log-hash">e4f5g6h</span>
+          <div class="log-content">
+            <span class="log-tag tag-gamedev">gamedev</span>
+            <p>Started learning Godot 4 + GDScript — working through movement and collision basics</p>
+            <span class="log-date">Jul 2026</span>
+          </div>
+        </li>
+        <li class="log-entry">
+          <span class="log-hash">i7j8k9l</span>
+          <div class="log-content">
+            <span class="log-tag tag-dsa">dsa</span>
+            <p>Building a daily LeetCode habit — pattern-based practice, arrays and two pointers first</p>
+            <span class="log-date">Jul 2026</span>
+          </div>
+        </li>
+        <!--
+          TIP: Add a new <li class="log-entry"> block each time you finish
+          something worth noting. Swap the tag-* class to match: tag-research,
+          tag-gamedev, tag-dsa, or add your own color in style.css.
+        -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="section">
+    <div class="section-inner">
+      <p class="eyebrow">03 / projects</p>
+      <h2>Selected work</h2>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-thumb" aria-hidden="true"></div>
+          <h3>Project One</h3>
+          <p>One or two sentences on what it does and why it exists.</p>
+          <div class="project-links">
+            <a href="#">Live →</a>
+            <a href="#">Code →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb" aria-hidden="true"></div>
+          <h3>Project Two</h3>
+          <p>One or two sentences on what it does and why it exists.</p>
+          <div class="project-links">
+            <a href="#">Live →</a>
+            <a href="#">Code →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb" aria-hidden="true"></div>
+          <h3>Summer Game Project</h3>
+          <p>The resume-worthy Godot project you ship by end of summer goes here.</p>
+          <div class="project-links">
+            <a href="#">Play →</a>
+            <a href="#">Code →</a>
+          </div>
+        </article>
+      </div>
+      <!--
+        TIP: Duplicate a <article class="project-card"> block for each
+        new project. Replace project-thumb with a real <img> once you
+        have screenshots.
+      -->
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section section-alt">
+    <div class="section-inner center">
+      <p class="eyebrow">04 / contact</p>
+      <h2>Let's talk</h2>
+      <p class="body-text">
+        Open to internship opportunities, research collaboration, or just
+        talking shop about games and algorithms.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:faizananiazi@gmail.com">Email</a>
+        <a href="https://github.com/Faizanni" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/faizanniazi" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>circa <span id="last-updated"></span>.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

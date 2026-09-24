@@ -1,2 +1,2 @@
-# Faizanni.github.io
-The faizan files
+# Home Sweet Website
+The aggregate of unredacted faizan files.
