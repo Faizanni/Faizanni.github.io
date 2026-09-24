@@ -284,3 +284,25 @@ img { max-width: 100%; display: block; }
   .log-entry { flex-direction: column; gap: 6px; }
   .log-hash { width: auto; }
 }
+
+/* =========================================================
+   WIP BANNER
+   ========================================================= */
+wip-banner {
+  display: block;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  padding: 2px 0;
+  color: #000000;
+  background: #fff200;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: bold;
+  line-height: 2;
+  white-space: nowrap;
+}
+
+wip-banner div {
+  width: max-content;
+}

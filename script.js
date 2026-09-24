@@ -46,3 +46,39 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+// Render reusable caution tape that spans the entire current viewport.
+class WipBanner extends HTMLElement {
+  connectedCallback() {
+    this.render();
+    this.resizeObserver = new ResizeObserver(() => this.render());
+    this.resizeObserver.observe(this);
+  }
+
+  disconnectedCallback() {
+    this.resizeObserver?.disconnect();
+  }
+
+  render() {
+    const style = getComputedStyle(this);
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    context.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+
+    const patterns = [
+      ">",
+      "WORK IN PROGRESS --⚠︎-- ",
+      "<",
+    ];
+    const repeats = Math.ceil(this.clientWidth / context.measureText(patterns[0]).width) + 1;
+
+    this.replaceChildren(
+      ...patterns.map((pattern) => {
+        const line = document.createElement("div");
+        line.textContent = pattern.repeat(repeats);
+        return line;
+      }),
+    );
+  }
+}
+
+customElements.define("wip-banner", WipBanner);
