@@ -46,9 +46,20 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Render reusable caution tape that spans the entire current viewport.
+// New element for caution tape that spans the width of current viewport.
 class WipBanner extends HTMLElement {
   connectedCallback() {
+    this.setAttribute("role", "button");
+    this.setAttribute("tabindex", "0");
+    this.setAttribute("aria-label", "Pause or resume the work in progress banner");
+    this.setAttribute("aria-pressed", "false");
+    this.addEventListener("click", () => this.toggleAnimation());
+    this.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        this.toggleAnimation();
+      }
+    });
     this.render();
     this.resizeObserver = new ResizeObserver(() => this.render());
     this.resizeObserver.observe(this);
@@ -66,7 +77,7 @@ class WipBanner extends HTMLElement {
 
     const patterns = [
       ">",
-      "WORK IN PROGRESS --⚠︎-- ",
+      "WORK IN PROGRESS ---⚠︎--- ",
       "<",
     ];
     const repeats = Math.ceil(this.clientWidth / context.measureText(patterns[0]).width) + 1;
@@ -74,10 +85,16 @@ class WipBanner extends HTMLElement {
     this.replaceChildren(
       ...patterns.map((pattern) => {
         const line = document.createElement("div");
-        line.textContent = pattern.repeat(repeats);
+        const text = pattern.repeat(repeats);
+        line.textContent = pattern === patterns[1] ? text + text : text;
         return line;
       }),
     );
+  }
+
+  toggleAnimation() {
+    const isPaused = this.classList.toggle("is-paused");
+    this.setAttribute("aria-pressed", String(isPaused));
   }
 }
 
