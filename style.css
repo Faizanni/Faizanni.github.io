@@ -318,6 +318,6 @@ wip-banner.is-paused div:nth-child(2) {
 }
 
 @keyframes wip-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-10%); }
+  from { transform: translateX(-10%); }
+  to { transform: translateX(0%); }
 }

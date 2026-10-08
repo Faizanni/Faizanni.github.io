@@ -48,11 +48,16 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 // New element for caution tape that spans the width of current viewport.
 class WipBanner extends HTMLElement {
-  connectedCallback() {
+  // Browser automatically calls this when WIP gets added.
+  connectedCallback() { // callback only for custom elements
+    // Set class attributes
+    // console.log("callback initiated")
     this.setAttribute("role", "button");
     this.setAttribute("tabindex", "0");
     this.setAttribute("aria-label", "Pause or resume the work in progress banner");
     this.setAttribute("aria-pressed", "false");
+    
+    // Add event listeners for toggling WIP banner scroll animation
     this.addEventListener("click", () => this.toggleAnimation());
     this.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
@@ -61,20 +66,23 @@ class WipBanner extends HTMLElement {
       }
     });
     this.render();
+    // Re-render banner whenever window resizes.
     this.resizeObserver = new ResizeObserver(() => this.render());
     this.resizeObserver.observe(this);
   }
 
   disconnectedCallback() {
+    console.log("callback disconnected")
     this.resizeObserver?.disconnect();
   }
 
   render() {
-    const style = getComputedStyle(this);
+    const style = getComputedStyle(this); // Get curr banner CSS style
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
     context.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
 
+    // Patterns for scrolling WIP banner
     const patterns = [
       ">",
       "WORK IN PROGRESS ---⚠︎--- ",
